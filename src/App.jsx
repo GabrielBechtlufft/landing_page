@@ -17,7 +17,7 @@ function App() {
         <div className="container">
           <nav className="navbar">
             <div className="logo">
-              GB Automation<span className="dot">.</span>
+              Automação inteligente<span className="dot">.</span>
             </div>
             <div className="nav-links">
               <a href="#about">Sobre</a>
