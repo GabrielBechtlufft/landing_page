@@ -1,0 +1,129 @@
+:root {
+  --color-primary: #ff6d5a; /* n8n Orange */
+  --color-secondary: #8d5af6; /* Purple */
+  --color-tertiary: #ea4b71; /* Pink */
+  --color-gradient: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-tertiary),
+    var(--color-secondary)
+  );
+
+  --bg-dark: #121212;
+  --bg-card: #1e1e1e;
+  --bg-input: #2d2d2d;
+
+  --text-main: #ffffff;
+  --text-muted: #b0b0b0;
+
+  --font-main: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-family: var(--font-main);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--text-main);
+  background-color: var(--bg-dark);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg-dark);
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: inherit;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: var(--color-tertiary);
+  text-shadow: 0 0 10px rgba(255, 109, 90, 0.5);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  color: var(--text-main);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.gradient-text {
+  background: var(--color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary {
+  background: var(--color-gradient);
+  color: white;
+  border: none;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(234, 75, 113, 0.3);
+}
+
+.section {
+  padding: 5rem 0;
+}
