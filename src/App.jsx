@@ -4,11 +4,13 @@ import pagamentosImg from "./assets/pagamentos.png";
 import meImg from "./assets/me.jpeg";
 import wallpaperImg from "./assets/wallpaper.png";
 import demoVideo from "./assets/demostração.mp4";
+import leadsImg from "./assets/workflow_lead.png";
+import leadsVideo from "./assets/leads.mp4";
 import "./App.css";
 
 function App() {
   const [activeTab, setActiveTab] = useState("cnpj");
-  const [showModal, setShowModal] = useState(false);
+  const [activeVideo, setActiveVideo] = useState(null);
 
   return (
     <div className="app-container">
@@ -100,6 +102,12 @@ function App() {
             >
               WhatsApp IA
             </button>
+            <button
+              className={`tab-btn ${activeTab === "leads" ? "active" : ""}`}
+              onClick={() => setActiveTab("leads")}
+            >
+              Classificação de Leads
+            </button>
           </div>
 
           <div className="portfolio-content">
@@ -165,7 +173,7 @@ function App() {
                     <li>⚡ Atendimento 24/7 Automatizado</li>
                   </ul>
                   <button
-                    onClick={() => setShowModal(true)}
+                    onClick={() => setActiveVideo(demoVideo)}
                     className="btn-demo"
                   >
                     Ver Demonstração
@@ -176,18 +184,48 @@ function App() {
                 </div>
               </div>
             )}
+
+            {activeTab === "leads" && (
+              <div className="project-card fade-in">
+                <div className="project-info">
+                  <h3>Classificação e Gestão de Leads</h3>
+                  <p>
+                    Sistema inteligente de qualificação de leads via formulário.
+                    Os dados são processados, classificados automaticamente e
+                    salvos no Supabase, com envio imediato de resumo por e-mail.
+                  </p>
+                  <ul className="project-features">
+                    <li>📝 Formulário Inteligente</li>
+                    <li>📧 Resumo por E-mail</li>
+                    <li>🗄️ Banco de Dados Supabase</li>
+                  </ul>
+                  <button
+                    onClick={() => setActiveVideo(leadsVideo)}
+                    className="btn-demo"
+                  >
+                    Ver Demonstração
+                  </button>
+                </div>
+                <div className="project-image">
+                  <img src={leadsImg} alt="Classificação de Leads" />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
       {/* Video Modal */}
-      {showModal && (
-        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+      {activeVideo && (
+        <div className="modal-overlay" onClick={() => setActiveVideo(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setShowModal(false)}>
+            <button
+              className="modal-close"
+              onClick={() => setActiveVideo(null)}
+            >
               ×
             </button>
-            <video className="modal-video" controls autoPlay src={demoVideo}>
+            <video className="modal-video" controls autoPlay src={activeVideo}>
               Seu navegador não suporta vídeos.
             </video>
           </div>
